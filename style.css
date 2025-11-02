@@ -1,0 +1,220 @@
+*
+{
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+body
+{
+    background-color: black;
+}
+main
+{
+    display: block;
+    margin: auto;
+    margin-top: 23%;
+    width: 100%;
+}
+.planet{
+    float: left;
+    display: block;
+    transform: translate(0, -50%);
+}
+.planet img{
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+.planet button{
+    display: block;
+    width: 90%;
+    margin: auto;
+    margin-top: 0;
+}
+.planet button:hover{
+    width: 100%;
+    margin-top: 0;
+}
+.planet button:active
+{
+    width: 90%;
+    margin-top: 0;
+}
+button
+{
+    background-color: black;
+    color: black;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+#sun{
+    width: 25%;
+}
+#mercury
+{
+    width: 4%;
+}
+#venus
+{
+    width: 5%;
+}
+#earth
+{
+    width: 6%;
+}
+#mars
+{
+    width: 4%;
+}
+#jupiter
+{
+    width: 10%;
+}
+#saturn
+{
+    width: 25%;
+}
+#uranus
+{
+    width: 6%;
+}
+#neptune{
+    width: 6%;
+}
+#pluto{
+    width: 3.1%
+}
+footer
+{
+    color: white;
+    clear: both;
+    position: absolute;
+    display: block;
+    background-color: rgb(0, 0, 0);
+    border-width: 5px;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 10px;
+    width: 1400px;
+    height: 200px;
+    bottom: 150px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+#stopka {
+    font-size: 2em;
+    text-align: center;
+    
+}
+footer input {
+    font-size: 1em;
+    margin-top: 30px;
+    border-radius: 2px;
+}
+#okej{
+    position: absolute;
+    clear: both;
+    bottom: -17%;
+    right: 50%;
+    transform: translate(50%);
+    font-size: 2em;
+}
+#background{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+#background.hidden{
+background-color: rgba(255, 0, 0, 0);
+transition: 0.6s;
+}
+#background.shown
+{
+background-color: rgba(0, 0, 0, 0.9);
+transition: 1s;
+}
+
+input.guzik:hover
+{
+    background-color: rgb(51, 51, 51);
+}
+input.guzik:active
+{
+    background-color: rgb(0, 0, 0);
+}
+input.guzik
+{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: grey;
+    width: 200px;
+    height: 50px;
+}
+#popup{
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    border-width: 3px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 5px;
+    color: white;
+    width: 80%;
+    top: 10%;
+    left: 50%;
+    z-index: 2;
+    clear: both;
+    border-collapse: collapse;
+}
+#popup img{
+    width: 40%;
+    height: auto;
+    float: left;
+    position: relative;
+    border-width: 3px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+#popup p, h1{
+    float: left;
+    display: inline;
+    width: 60%;
+    border-width: 3px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 5px;
+    margin: 0;
+    padding: 3px;
+}
+#popup p {
+    font-family:sans-serif;
+    color: gainsboro;
+    font-size: 1.8em;
+}
+h1{
+    font-size: 2.8em;
+}
+.shown
+{
+    visibility: visible;
+}
+.hidden
+{
+    visibility: hidden;
+}
+#popup.shown
+{
+    transform: translate(-50%, 0);
+    transition-duration: 1s;
+}
+#popup.hidden
+{
+    transition-duration: 0.9s;
+    transform: translate(-50%, -140%);
+}

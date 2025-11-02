@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planety</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="sun" class="planet"><button onclick="ShowInfo(0)"><img src="sun.jpg" alt="sun"></button></div>
+    <div id="mercury" class="planet"><button onclick="ShowInfo(1)"><img src="mercury.jpg" alt="mercury"></button></div>
+    <div id="venus" class="planet"><button onclick="ShowInfo(2)"><img src="venus.jpg" alt="venus"></button></div>
+    <div id="earth" class="planet"><button onclick="ShowInfo(3)"><img src="earth.jpg" alt="earth"></button></div>
+    <div id="mars" class="planet"><button onclick="ShowInfo(4)"><img src="mars.jpg" alt="mars"></button></div>
+    <div id="jupiter" class="planet"><button onclick="ShowInfo(5)"><img src="jupiter.jpg" alt="jupiter"></button></div>
+    <div id="saturn" class="planet"><button onclick="ShowInfo(6)"><img src="saturn.jpg" alt="saturn"></button></div>
+    <div id="uranus" class="planet"><button onclick="ShowInfo(7)"><img src="uranus.jpg" alt="uranus"></button></div>
+    <div id="neptune" class="planet"><button onclick="ShowInfo(8)"><img src="neptune.jpg" alt="neptune"></button></div>
+    <div id="pluto" class="planet"><button onclick="ShowInfo(9)"><img src="pluto.jpg" alt="pluto"></button></div>
+    </main>
+    <div id="background" class="hidden">
+
+    </div>
+    <div id="popup" class="hidden">
+        <img src="sun.jpg" id="obrazek">
+        <section id="sekcja">
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, doloribus? Aperiam corrupti aspernatur, assumenda, vero dolores ex ipsum dolorem eaque pariatur, distinctio recusandae ad ut molestias rerum et beatae officiis?</p>
+                
+                
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem quia laboriosam beatae inventore, necessitatibus debitis tempora delectus? Voluptatem eveniet quas eos inventore molestias, consequuntur amet, in id excepturi repellendus non.
+                Consectetur dolor obcaecati tempora tempore repellendus a placeat vero est dicta eveniet laborum non rerum neque laudantium ab temporibus similique, quibusdam aut at perferendis! Doloribus commodi repudiandae dolorem cum quibusdam.</p>
+        </section>
+        <input type="submit" id="okej" class="guzik" value="Okej" onclick="CloseInfo()">
+    </div>
+    <footer>
+        <div id="stopka">
+            Wybierz Planetę: <input type="text" id="planet">
+            <br>
+            <input type="submit" class="guzik" id="submit" value="Sprawdź" onclick="ShowInfo()">
+        </div>
+    </footer>
+    <script>
+        let tablicaPrawdy = [
+                    "słońce",
+                    "merkury",
+                    "wenus",
+                    "ziemia",
+                    "mars",
+                    "jowisz",
+                    "saturn",
+                    "uran",
+                    "neptun",
+                    "pluton"
+        ];
+        let tablicaPrawdy2 = [
+                    "sun.jpg",
+                    "mercury.jpg",
+                    "venus.jpg",
+                    "earth.jpg",
+                    "mars.jpg",
+                    "jupiter.jpg",
+                    "saturn.jpg",
+                    "uranus.jpg",
+                    "neptune.jpg",
+                    "pluto.jpg"
+        ];
+        let tablicaPrawdy3 = [
+            "<h1>Słońce</h1><p>Słońce (łac. Sol, gr. Ἥλιος, trb. Hḗlios; symbol: ☉) – gwiazda centralna Układu Słonecznego, wokół której orbituje Ziemia, inne planety tego układu, planety karłowate oraz małe ciała Układu Słonecznego.</p><p>Słońce składa się z gorącej plazmy utrzymywanej przez grawitację i kształtowanej przez pole magnetyczne. Jest prawie idealnie kuliste. Ma średnicę około 1 392 684 km, około 109 razy większą niż Ziemia, a jego masa (1,989 ×1030 kg, około 333 tysiące razy większa niż masa Ziemi (M⊕)) stanowi około 99,86% całkowitej masy Układu Słonecznego. Około trzy czwarte masy Słońca stanowi wodór, resztę głównie hel. Pozostałe 1,69% (co odpowiada około 5600 M🜨) tworzą cięższe pierwiastki, w tym m.in. tlen, węgiel, neon i żelazo.</p>"
+            ,
+            '<h1>Merkury</h1><p>Najmniejsza i najbliższa Słońca planeta Układu Słonecznego. Jako planeta dolna znajduje się dla ziemskiego obserwatora zawsze blisko Słońca, dlatego jest trudna do obserwacji. Mimo to należy do planet widocznych gołym okiem i była znana już w starożytności. Merkurego dojrzeć można jedynie tuż przed wschodem lub tuż po zachodzie Słońca.</p><p>Ukształtowanie powierzchni Merkurego przypomina Księżyc: są na nim liczne kratery uderzeniowe i pozbawiony jest on atmosfery. Temperatura powierzchni waha się od −173 °C do 427 °C. W przeciwieństwie do Księżyca, planeta ma jednak duże żelazne jądro, generujące pole magnetyczne stukrotnie słabsze od ziemskiego[4]. Rozmiar jądra sprawia, że Merkury ma jedną z największych gęstości spośród planet Układu Słonecznego[5] (Ziemia ma nieznacznie większą gęstość). Merkury nie ma naturalnych satelitów.</p>'
+            ,
+            '<h1>Wenus</h1><p>Druga pod względem odległości od Słońca planeta Układu Słonecznego. Jest trzecim pod względem jasności ciałem niebieskim widocznym na niebie, po Słońcu i Księżycu. Jej obserwowana wielkość gwiazdowa sięga −4,6m. Ponieważ Wenus jest bliżej Słońca niż Ziemia, zawsze jest widoczna w niewielkiej odległości kątowej od niego; jej maksymalna elongacja to 47,8°. Odległość Wenus od Ziemi zmienia się w zakresie od około 40 mln km do około 259 mln km[2].</p><p>Nazwa planety wzięła się od rzymskiej bogini miłości, Wenus. Na niebie planeta jest widoczna przez około trzy godziny przed wschodem Słońca nad wschodnim horyzontem lub po zachodzie Słońca[3] nad zachodnim horyzontem. Nieodłączna towarzyszka wschodzącego i zachodzącego Słońca, nazywana jest także Gwiazdą Poranną (Zaranną, Porankową) lub Jutrzenką (łac. Stella Matutina), kiedy zwiastuje wschód Słońca, albo Gwiazdą Wieczorną, która finalizuje jego zachód.</p>'
+            ,
+            '<h1>Ziemia</h1><p>Ziemia (łac. Terra, Tellus; gr. Γαῖα, trb. Gaja) – trzecia, licząc od Słońca, oraz piąta pod względem wielkości planeta Układu Słonecznego. Pod względem średnicy, masy i gęstości jest to największa planeta skalista Układu Słonecznego. Planeta uformowała się około 4,54 mld lat temu.</p><p>Ziemia jest jedynym znanym miejscem we Wszechświecie, w którym występuje życie[9], jest zamieszkana przez miliony gatunków, w tym przez człowieka. Życie pojawiło się w oceanach w ciągu pierwszego miliarda lat po uformowaniu się Ziemi. Dystans dzielący Słońce od Ziemi, jej właściwości fizyczne oraz jej historia geologiczna są najważniejszymi czynnikami, które pozwoliły organizmom żyć i ewoluować. Różnorodność biologiczna Ziemi nieustannie powiększa się, chociaż w dziejach życia Ziemi proces ten był kilkukrotnie przerywany, kiedy miało miejsce masowe wymieranie gatunków[10]. Szacuje się, że 99% gatunków organizmów żywych (ok. 5 mld) kiedykolwiek zamieszkujących Ziemię wymarło, wciąż mieszka na niej 10–14 mln gatunków, z czego 1,2 mln zostało udokumentowanych.</p>'
+            ,
+            '<h1>Mars</h1><p> Czwarta od Słońca planeta Układu Słonecznego. Krąży między orbitą Ziemi a pasem planetoid dzielącym go od orbity Jowisza. Planeta została nazwana od imienia rzymskiego boga wojny – Marsa, ze względu na barwę, która przy obserwacji z Ziemi wydaje się rdzawo-czerwona i kojarzyła się starożytnym Rzymianom z pożogą wojenną. Odcień ten bierze się od tlenków żelaza pokrywających powierzchnię. Mars jest planetą wewnętrzną z cienką atmosferą, o powierzchni usianej kraterami uderzeniowymi, podobnie jak powierzchnia Księżyca i wielu innych ciał Układu Słonecznego. Powierzchnia wykazuje formy podobne do ziemskich: wulkany, doliny, kaniony, pustynie i polarne czapy lodowe. Okres obrotu wokół własnej osi jest niewiele dłuższy niż ziemski i wynosi 24,6229 godziny (24 h 37 m 22 s). Na Marsie znajduje się najwyższe wzniesienie w Układzie Słonecznym – Olympus Mons i największy kanion – Valles Marineris. Gładki obszar równinny Vastitas Borealis na półkuli północnej, który obejmuje 40% powierzchni planety, może być pozostałością ogromnego uderzenia. W przeciwieństwie do Ziemi, Mars jest mało aktywny geologicznie i nie zachodzą na nim zjawiska tektoniczne.</p>'
+            ,
+            '<h1>Jowisz</h1><p>Gazowy olbrzym, największa planeta Układu Słonecznego[b]. Piąta planeta w kolejności od Słońca. Masa Jowisza jest nieco mniejsza niż jedna tysięczna masy Słońca, a zarazem dwa i pół razy większa niż łączna masa pozostałych planet w Układzie Słonecznym. Wraz z Saturnem, Uranem i Neptunem tworzą grupę gazowych olbrzymów, nazywaną czasem również planetami jowiszowymi.</p><p>Planetę znali astronomowie w czasach starożytnych, była związana z mitologią i wierzeniami religijnymi wielu kultur. Rzymianie nazwali planetę na cześć najważniejszego bóstwa swojej mitologii – Jowisza. Obserwowany z Ziemi Jowisz może osiągnąć jasność do −2,95m. Jest to trzeci co do jasności naturalny obiekt na nocnym niebie po Księżycu i Wenus (okresowo, w momencie wielkiej opozycji, jasnością może mu dorównywać Mars).</p>'
+            ,
+            '<h1>Saturn</h1><p>Gazowy olbrzym, szósta od Słońca planeta Układu Słonecznego, druga po Jowiszu pod względem masy i wielkości. Charakterystyczną jego cechą są bardzo wyraźne pierścienie, składające się głównie z lodu i w mniejszej ilości z odłamków skalnych; inne planety-olbrzymy także mają systemy pierścieni, ale żaden z nich nie jest tak rozległy ani tak jasny. W marcu 2025 roku znane były 274 naturalne satelity Saturna, najwięcej wśród planet.</p><p>Jego średnica jest 9 razy większa od średnicy Ziemi. Chociaż jego gęstość (700 kg/m³) to tylko jedna ósma średniej gęstości Ziemi, ze względu na wielokrotnie większą objętość, masa Saturna jest 95 razy większa niż masa Ziemi</p>'
+            ,
+            '<h1>Uran</h1><p>gazowy olbrzym, siódma od Słońca planeta Układu Słonecznego, trzecia pod względem wielkości i czwarta pod względem masy. Nazwa planety pochodzi od Uranosa, greckiego boga, uosobienia nieba (klasyczna greka: Οὐρανός), ojca Kronosa (Saturna) i dziada Zeusa (Jowisza). Choć jest widoczny gołym okiem podobnie jak pięć innych planet, umknął uwadze starożytnych obserwatorów z powodu małej jasności i powolnego ruchu po sferze niebieskiej. William Herschel ogłosił odkrycie planety 13 marca 1781, po raz pierwszy w historii rozszerzając znane granice Układu Słonecznego. Uran to również pierwsza planeta odkryta przy pomocy teleskopu.</p>'
+            +
+            '<p>Uran budową i składem chemicznym przypomina Neptuna, a obie planety mają odmienną budowę i skład niż większe gazowe olbrzymy: Jowisz i Saturn. Astronomowie czasem umieszczają je w oddzielnej kategorii „lodowych olbrzymów”. Atmosfera Urana, chociaż składa się głównie z wodoru i helu (podobnie jak atmosfery Jowisza i Saturna), zawiera więcej zamrożonych substancji lotnych (tzw. lodów) niż atmosfery większych planet-olbrzymów; są to substancje takie jak woda, amoniak i metan oraz śladowe ilości węglowodorów. Jest najzimniejszą atmosferą planetarną w Układzie Słonecznym; minimalna temperatura to 49 K (−224 °C). Ma ona złożoną, warstwową strukturę. Uważa się, że jej najniższe chmury tworzy woda, a najwyższa warstwa chmur jest utworzona z kryształków metanu. Z kolei wnętrze Urana składa się głównie z lodów i skał.</p>'
+            ,
+            '<h1>Neptun</h1><p>Gazowy olbrzym, ósma, najdalsza od Słońca planeta w Układzie Słonecznym, czwarta pod względem średnicy oraz trzecia pod względem masy. Neptun jest ponad 17 razy masywniejszy od Ziemi i masywniejszy od swojego „bliźniaka” Urana, który ma masę prawie 15 razy większą od masy Ziemi. Krąży wokół Słońca w odległości około 30 razy większej niż dystans Ziemia-Słońce. Nazwa pochodzi od rzymskiego boga mórz Neptuna. Jego symbol astronomiczny to , stylizowany trójząb Neptuna.</p>'
+            +
+            '<p>Odkryty 23 września 1846 Neptun jest jedyną planetą Układu Słonecznego, której istnienie wykazano nie na podstawie obserwacji nieba, ale na drodze obliczeń matematycznych. Niespodziewane zmiany w ruchu orbitalnym Urana doprowadziły astronomów do wniosku, że podlega on perturbacjom pochodzącym od nieznanej planety. Neptun został następnie zaobserwowany przez Johanna Gallego w miejscu przewidzianym przez Urbaina Le Verriera, a wkrótce został też odkryty jego największy księżyc, Tryton; żaden z pozostałych znanych dziś księżyców Neptuna nie został odkryty za pomocą teleskopu aż do XX wieku. Neptun został odwiedzony przez tylko jedną sondę kosmiczną, Voyager 2, która przeleciała w pobliżu planety 25 sierpnia 1989.</p>'
+            ,
+            '<h1>Pluton</h1><p>To nie planeta.</p>'
+
+        ]
+        function ShowInfo(planet)
+        {
+            planet = PoprawIndex(planet);
+            let popup = document.getElementById("popup");
+            popup.setAttribute("class", "shown");
+            let background = document.getElementById("background");
+            background.setAttribute("class", "shown");
+            let img = document.getElementById("obrazek");
+            img.setAttribute("src", tablicaPrawdy2[planet])
+            let section = document.getElementById("sekcja");
+            section.innerHTML = tablicaPrawdy3[planet];
+        }
+        function CloseInfo()
+        {
+            let popup = document.getElementById("popup");
+            popup.setAttribute("class", "hidden");
+            let background = document.getElementById("background");
+            background.setAttribute("class", "hidden");
+        }
+        function PoprawIndex(planet)
+        {
+            if (planet == null)
+            {
+                let pole = document.getElementById("planet");
+                planet2 = pole.value;
+                
+                
+
+                if (isNaN(planet2))
+                {
+                    lower = planet2.toLowerCase();
+                    planet2 = ZamienNazweNaIndex(lower);
+                }
+                else
+                {
+                    if (planet2 < 0 || planet2 > 9)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return Math.floor(planet2)
+                    }
+                }
+            }
+            else
+            {
+                return planet;
+            }
+            return planet2;
+        }
+
+        function ZamienNazweNaIndex(nazwa)
+        {
+            for (let i = 0; i < tablicaPrawdy.length; i++) {
+                if (nazwa == tablicaPrawdy[i])
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+    </script>
+</body>
+</html>
