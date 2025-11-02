@@ -26,27 +26,27 @@ main
     margin: auto;
 }
 .planet button{
-    display: block;
     width: 90%;
-    margin: auto;
-    margin-top: 0;
+    transition: 0.1s;
 }
 .planet button:hover{
     width: 100%;
-    margin-top: 0;
+    transition: 0.1s;
 }
 .planet button:active
 {
     width: 90%;
-    margin-top: 0;
+    transition: 0.1s;
 }
 button
 {
+    display: block;
     background-color: black;
     color: black;
     border: 0;
     margin: 0;
     padding: 0;
+    margin: auto;
 }
 #sun{
     width: 25%;
